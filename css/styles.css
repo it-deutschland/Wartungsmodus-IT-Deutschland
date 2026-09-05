@@ -57,9 +57,9 @@ html, body {
 
 .maintenance-container {
   text-align: center;
-  padding: 40px 20px;
+  padding: 30px 20px 110px;
   width: 100%;
-  max-width: 800px;
+  max-width: 860px;
   margin: 0 auto;
 }
 
@@ -150,36 +150,120 @@ html, body {
   line-height: 1.8;
 }
 
-/* ===== SOCIAL ICONS ===== */
-#socialIcons { display: block; margin: 30px 0 0; }
-#socialIcons ul { margin: 0; padding: 0; text-align: center; }
-#socialIcons ul li {
-  margin-right: 5px;
-  height: 34px;
-  line-height: 34px;
-  list-style-type: none;
-  display: inline-block;
+/* ===== SOCIAL LINKS & FOOTER ===== */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 26px;
 }
-#socialIcons ul li a {
-  width: 34px;
-  height: 34px;
-  display: inline-block;
-}
-.twitterIcon, .facebookIcon, .linkedInIcon {
-  background: url('../images/social-icons.png') -74px 0;
-}
-.facebookIcon  { background-position: 10px 0; }
-.linkedInIcon  { background-position: -245px 0; }
 
-/* ===== FOOTER TEXT ===== */
-.tempBy {
-  display: block;
-  text-align: center;
-  margin-top: 30px;
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
+.social-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(17, 35, 82, 0.65);
+  border: 1px solid rgba(77, 161, 255, 0.6);
+  box-shadow: 0 0 18px rgba(30, 119, 220, 0.6);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
-.tempBy a:hover { color: #1e77dc; }
+
+.social-btn i { font-size: 1.4rem; }
+
+.social-btn:hover {
+  color: #fff;
+  transform: translateY(-3px) scale(1.05);
+  background: rgba(28, 64, 150, 0.8);
+  box-shadow: 0 0 30px rgba(30, 119, 220, 0.9);
+}
+
+.site-footer {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-discord {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(26, 35, 85, 0.72);
+  border: 2px solid rgba(84, 155, 255, 0.7);
+  box-shadow: 0 0 30px rgba(37, 119, 225, 0.85);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.footer-discord i { font-size: 2.4rem; }
+
+.footer-discord:hover {
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 0 38px rgba(37, 119, 225, 1);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 18px;
+  font-size: .9rem;
+  color: rgba(255,255,255,.82);
+}
+
+.footer-link-button {
+  padding: 0;
+  background: none;
+  border: none;
+  color: #b7d8ff;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color .2s ease;
+}
+
+.footer-link-button:hover { color: #fff; }
+
+.whatsapp-float {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #25d366;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.9);
+  animation: whatsappPulse 1.8s infinite;
+}
+
+.whatsapp-float i { font-size: 1.8rem; }
+
+@keyframes whatsappPulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { transform: scale(1.08); box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.legal-modal {
+  background: rgba(8, 18, 42, 0.96);
+  color: #f5f8ff;
+  border: 1px solid rgba(84, 155, 255, 0.4);
+}
+
+.legal-modal .modal-header { border-bottom-color: rgba(84, 155, 255, 0.35); }
 
 /* ===== FADE-IN ANIMATIONS ===== */
 .fade-in-up {
@@ -197,6 +281,11 @@ html, body {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 576px) {
-  #runde-logo   { width: 80px; height: 80px; }
+  .large-header { background-position: center top; }
   #main-logo    { max-width: 280px; }
+  .maintenance-sub { font-size: .95rem; }
+  .maintenance-info { font-size: .85rem; }
+  .footer-discord { width: 72px; height: 72px; }
+  .footer-discord i { font-size: 2rem; }
+  .whatsapp-float { width: 56px; height: 56px; left: 12px; bottom: 12px; }
 }
