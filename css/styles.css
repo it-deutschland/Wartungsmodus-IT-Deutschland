@@ -1,0 +1,202 @@
+/*
+Author: IT Deutschland – Maintenance Page
+*/
+@import url(https://fonts.googleapis.com/css2?family=Audiowide&family=Open+Sans:wght@300;400;600;800&display=swap);
+
+/* ===== BASE ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #000;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* ===== BACKGROUND CANVAS ===== */
+.large-header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: #333 url('../img/Background.png') center center / cover no-repeat;
+  z-index: 0;
+  overflow: hidden;
+}
+
+#demo-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== FLOATING PARTICLES CANVAS ===== */
+#particles-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== MAIN CONTENT ===== */
+#Content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maintenance-container {
+  text-align: center;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===== ROUND LOGO (spin on load) ===== */
+#round-logo-wrapper {
+  margin-bottom: 20px;
+}
+
+#runde-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  animation: spinIn 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  filter: drop-shadow(0 0 18px rgba(220, 30, 30, 0.7));
+}
+
+@keyframes spinIn {
+  0%   { transform: rotate(0deg) scale(0); opacity: 0; }
+  60%  { transform: rotate(540deg) scale(1.15); opacity: 1; }
+  100% { transform: rotate(720deg) scale(1); opacity: 1; }
+}
+
+/* ===== MAIN LOGO (pulse / breathe) ===== */
+#main-logo-wrapper {
+  margin: 10px auto 30px;
+}
+
+#main-logo {
+  max-width: 420px;
+  width: 90%;
+  animation: logoPulse 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 24px rgba(17, 162, 230, 0.55));
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
+@keyframes logoPulse {
+  0%   { transform: scale(1);    opacity: 1; filter: drop-shadow(0 0 18px rgba(30, 135, 220, 0.5)); }
+  50%  { transform: scale(1.07); opacity: 1; filter: drop-shadow(0 0 36px rgba(4, 116, 190, 0.9)); }
+  100% { transform: scale(1);    opacity: 1; filter: drop-shadow(0 0 18px rgba(30, 65, 220, 0.5)); }
+}
+
+/* ===== MAINTENANCE TEXT ===== */
+.maintenance-title {
+  font-family: 'Audiowide', cursive;
+  font-size: clamp(1rem, 3vw, 2rem);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  color: #fff;
+  text-shadow:
+    0 0 10px rgba(30, 135, 220, 0.5),
+    0 0 30px rgba(4, 116, 190, 0.9),
+    0 0 60px rgba(30, 65, 220, 0.5);
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 10px rgba(4, 116, 190, 0.9), 0 0 30px rgba(30, 135, 220, 0.5); }
+  50%       { text-shadow: 0 0 20px rgba(4, 116, 190, 0.9),   0 0 60px rgba(4, 116, 190, 0.9), 0 0 100px rgba(30, 65, 220, 0.5); }
+}
+
+.maintenance-sub {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 20px;
+}
+
+.maintenance-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #1e41dc, transparent);
+  margin: 20px auto;
+  animation: dividerGlow 2s ease-in-out infinite;
+}
+
+@keyframes dividerGlow {
+  0%, 100% { box-shadow: 0 0 6px #1ec0dc; width: 80px; }
+  50%       { box-shadow: 0 0 20px #0959ee; width: 140px; }
+}
+
+.maintenance-info {
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+}
+
+/* ===== SOCIAL ICONS ===== */
+#socialIcons { display: block; margin: 30px 0 0; }
+#socialIcons ul { margin: 0; padding: 0; text-align: center; }
+#socialIcons ul li {
+  margin-right: 5px;
+  height: 34px;
+  line-height: 34px;
+  list-style-type: none;
+  display: inline-block;
+}
+#socialIcons ul li a {
+  width: 34px;
+  height: 34px;
+  display: inline-block;
+}
+.twitterIcon, .facebookIcon, .linkedInIcon {
+  background: url('../images/social-icons.png') -74px 0;
+}
+.facebookIcon  { background-position: 10px 0; }
+.linkedInIcon  { background-position: -245px 0; }
+
+/* ===== FOOTER TEXT ===== */
+.tempBy {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+.tempBy a:hover { color: #1e77dc; }
+
+/* ===== FADE-IN ANIMATIONS ===== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.9s ease forwards;
+  animation-delay: 1.4s;
+}
+.fade-in-up.delay-3 { animation-delay: 2s; }
+.fade-in-up.delay-4 { animation-delay: 2.6s; }
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 576px) {
+  #runde-logo   { width: 80px; height: 80px; }
+  #main-logo    { max-width: 280px; }
+}
