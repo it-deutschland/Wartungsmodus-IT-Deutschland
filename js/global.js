@@ -57,24 +57,6 @@
   }
   animateParticles();
 
-  /* ── Typing-cursor effect on subtitle ── */
-  var sub = document.querySelector('.maintenance-sub');
-  if (sub) {
-    var originalHTML = sub.innerHTML;
-    sub.style.borderRight = '2px solid rgba(220,30,30,0.7)';
-    var blinkInterval = setInterval(function () {
-      sub.style.borderRightColor =
-        sub.style.borderRightColor === 'transparent'
-          ? 'rgba(220,30,30,0.7)'
-          : 'transparent';
-    }, 550);
-    // Stop blinking after 8 s so it doesn't distract forever
-    setTimeout(function () {
-      clearInterval(blinkInterval);
-      sub.style.borderRight = 'none';
-    }, 8000);
-  }
-
   /* ── Mouse-parallax on the main logo ── */
   var mainLogo = document.getElementById('main-logo');
   if (mainLogo) {
